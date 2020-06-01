@@ -152,7 +152,7 @@ class Router {
             fullscreenDialog:
                 transition == TransitionType.materialFullScreenDialog,
             builder: (BuildContext context) {
-              return handler.handlerFunc(context, parameters);
+              return handler.handlerFunc(context, parameters, routeSettings.arguments);
             });
       } else if (transition == TransitionType.cupertino ||
           transition == TransitionType.cupertinoFullScreenDialog) {
@@ -174,7 +174,7 @@ class Router {
           settings: routeSettings,
           pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secondaryAnimation) {
-            return handler.handlerFunc(context, parameters);
+            return handler.handlerFunc(context, parameters, routeSettings.arguments);
           },
           transitionDuration: transitionDuration,
           transitionsBuilder: routeTransitionsBuilder,
